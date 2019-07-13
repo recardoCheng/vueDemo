@@ -3,8 +3,8 @@
         <h1>All Blog Articles</h1>
         <input type="text" v-model="searchText"/>
         <div v-for="blog in searchBlog" class="single-blog"> 
-           <h2>{{blog.title|toUpperCase}}</h2>
-            <article>{{blog.body}}</article>
+           <router-link :to="'/blog/'+blog.id"> <h2 v-rainbow>{{blog.title|toUpperCase}}</h2> </router-link>
+           <article>{{blog.body}}</article>
         </div>
        
     </div>
