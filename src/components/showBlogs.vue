@@ -4,7 +4,7 @@
         <input type="text" v-model="searchText"/>
         <div v-for="blog in searchBlog" class="single-blog"> 
            <router-link :to="'/blog/'+blog.id"> <h2 v-rainbow>{{blog.title|toUpperCase}}</h2> </router-link>
-           <article>{{blog.body}}</article>
+           <article>{{blog.content}}</article>
         </div>
        
     </div>
@@ -25,10 +25,37 @@ export default {
     },
 
     created() {
-        this.$http.get('https://jsonplaceholder.typicode.com/posts').then( (data) => {
-            this.blogs = data.body.slice(0,10);
+        console.log("showBlogs created");
+        this.$http.get('https://tonal-loader-162104.firebaseio.com/posts.json').then( (data) => {
+            return data.json();
+        }).then(function(data) {
+            var blogsArray=[];
+            for (let key in data) {
+                console.log(data[key]);
+                data[key].id=key;
+                blogsArray.push(data[key]);
+            }
+            this.blogs=blogsArray;
         })
     },
+
+    beforeMount() {
+        console.log("showBlogs beforeMount");
+    },
+
+    mounted() {
+        console.log("showBlogs mounted");
+    },
+
+
+    beforeDestroy() {
+        console.log("showBlogs beforeDestroy");
+    },
+
+    destroyed() {
+        console.log("showBlogs destroyed");
+    },
+
 
     directives: {
         'rainbow': {

@@ -8,6 +8,28 @@
 </template>
 
 <script>
+export default {
+    created() {
+      console.log("header created");
+    },
+
+    beforeMount() {
+      console.log("header beforeMount");
+    },
+
+    mounted() {
+      console.log("header mounted");
+    },
+
+    beforeDestroy() {
+      console.log("header beforeDestroy");
+    },
+
+    destroyed() {
+      console.log("header destroyed");
+    }
+}
+
 </script>
 
 <style scoped>

@@ -55,12 +55,26 @@ export default {
 
     methods: {
         postBlog() {
-            this.submitted=!this.submitted;
+            this.$http.post('https://tonal-loader-162104.firebaseio.com/posts.json', this.blog).then(function(data) {
+                console.log(data);
+                this.submitted=!this.submitted;
+            })
         }
     },
 
     created() {
+        console.log("addBlog created");
+    },
+
+
+    beforeDestroy() {
+        console.log("addBlog beforeDestroy");
+    },
+
+    destroyed() {
+        console.log("addBlog destroyed");
     }
+
 }
 </script>
 

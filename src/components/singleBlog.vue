@@ -16,9 +16,10 @@
         },
 
         created() {
-            this.$http.get('https://jsonplaceholder.typicode.com/posts/'+this.id).then( (data) => {
-                //console.log(data);
-                this.blog=data.body;
+            this.$http.get('https://tonal-loader-162104.firebaseio.com/posts/'+this.id+'.json').then( (data) => {
+                return data.json();
+            }).then(function(data){
+                this.blog=data;
             })
         }
     }

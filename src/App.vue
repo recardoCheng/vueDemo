@@ -13,11 +13,33 @@ export default {
     components: {
       'app-header': header
     },
+
     data () {
         return {
         }
     },
+
     methods: {
+    },
+
+    created() {
+      console.log("app created");
+    },
+
+    beforeMount() {
+      console.log("app beforeMount");
+    },
+
+    mounted() {
+      console.log("app mounted");
+    },
+
+    beforeDestroy() {
+      console.log("app beforeDestroy");
+    },
+
+    destroyed() {
+      console.log("app destroyed");
     }
 }
 </script>

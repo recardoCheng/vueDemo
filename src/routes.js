@@ -6,6 +6,7 @@ import singleBlog from './components/singleBlog.vue';
 
 
 export default [
+    {path: '*', redirect: '/'},
     {path: '/', component: showBlogs},
     {path: '/add', component: addBlog},
     {path: '/blog/:id', component: singleBlog}
