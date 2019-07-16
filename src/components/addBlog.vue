@@ -62,17 +62,65 @@ export default {
         }
     },
 
+    watch: {
+        '$route' (to, from) {
+            console.log('addBlog route watch, ', 'to:', to, 'from:', from);
+        }
+    },
+
+    beforeRouteEnter (to, from, next) {
+        console.log('addBlog beforeRouteEnter');
+        next();
+    },
+
+    beforeRouteUpdate (to, from, next) {
+        console.log('addBlog beforeRouteUpdate');
+        next();
+    },
+
+    beforeRouteLeave(to,from,next){
+        console.log('addBlog beforeRouteLeave');
+        next();
+    },
+
+    beforeCreate() {
+        console.log("addBlog beforeCreate");
+    },
+
     created() {
         console.log("addBlog created");
     },
 
+    beforeUpdate() {
+      console.log("addBlog beforeUpdate");
+    },
+
+    updated() {
+      console.log("addBlog updated");
+    },
+
+    activated() {
+      console.log("addBlog activated");
+    },
+
+    deactivated() {
+      console.log("addBlog deactivated");
+    },
+
+    beforeMount() {
+      console.log("addBlog beforeMount");
+    },
+
+    mounted() {
+      console.log("addBlog mouted");
+    },
 
     beforeDestroy() {
-        console.log("addBlog beforeDestroy");
+      console.log("addBlog beforeDestroy");
     },
 
     destroyed() {
-        console.log("addBlog destroyed");
+      console.log("addBlog destroyed");
     }
 
 }

@@ -17,3 +17,20 @@ new Vue({
   router: router,
   render: h => h(App)
 })
+
+
+router.beforeEach((to,from,next)=>{
+  console.log('%cglobal beforeEach', 'background: #222; color: #bada55');
+  console.log("to:", to, ",from:", from);
+  next();
+});
+
+router.beforeResolve((to,from,next)=>{
+  console.log('%cglobal beforeResolve', 'background: #222; color: #bada55');
+  next();
+});
+
+router.afterEach((to,from)=>{
+  console.log('%cglobal afterEach', 'background: #222; color: #bada55');
+  //next();
+});

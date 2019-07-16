@@ -6,7 +6,7 @@
            <router-link :to="'/blog/'+blog.id"> <h2 v-rainbow>{{blog.title|toUpperCase}}</h2> </router-link>
            <article>{{blog.content}}</article>
         </div>
-       
+
     </div>
 </template>
 
@@ -24,6 +24,33 @@ export default {
     methods: {
     },
 
+    watch: {
+        '$route' (to, from) {
+            console.log('showBlogs route watch, ', 'to:', to, 'from:', from);
+        }
+    },
+
+
+    beforeRouteEnter (to, from, next) {
+        console.log('showBlogs beforeRouteEnter');
+        next();
+    },
+
+    beforeRouteUpdate (to, from, next) {
+        console.log('showBlogs beforeRouteUpdate');
+        next();
+    },
+
+    beforeRouteLeave(to, from, next){
+        console.log('showBlogs beforeRouteLeave');
+        next();
+    },
+
+
+    beforeCreate() {
+      console.log("showBlogs beforeUpdate");
+    },
+
     created() {
         console.log("showBlogs created");
         this.$http.get('https://tonal-loader-162104.firebaseio.com/posts.json').then( (data) => {
@@ -31,7 +58,6 @@ export default {
         }).then(function(data) {
             var blogsArray=[];
             for (let key in data) {
-                console.log(data[key]);
                 data[key].id=key;
                 blogsArray.push(data[key]);
             }
@@ -47,6 +73,21 @@ export default {
         console.log("showBlogs mounted");
     },
 
+    beforeUpdate() {
+      console.log("showBlogs beforeUpdate");
+    },
+
+    updated() {
+      console.log("showBlogs updated");
+    },
+
+    activated() {
+      console.log("showBlogs activated");
+    },
+
+    deactivated() {
+      console.log("showBlogs deactivated");
+    },
 
     beforeDestroy() {
         console.log("showBlogs beforeDestroy");
