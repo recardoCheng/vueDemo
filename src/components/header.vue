@@ -3,8 +3,8 @@
         <ul>
             <li><router-link to="/"　exact>Blog</router-link></li>
             <li><router-link to="/add" exact>Add a New Blog</router-link></li>
-            <li><router-link to="/gmap" exact>Google Map</router-link></li>
-
+            <li><router-link to="/gmap" exact>Google Map</router-link></li>            
+            <li><router-link to="/bootstrap" exact>bootstrap</router-link></li>
         </ul>
     </nav>
 </template>

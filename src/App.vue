@@ -83,9 +83,6 @@ export default {
 }
 </script>
 
-<style>
-body{
-    margin: 0;
-    font-family: 'Nunito SemiBold';
-}
+<style lang="scss" scoped>
+   @import './style/main.scss'
 </style>
